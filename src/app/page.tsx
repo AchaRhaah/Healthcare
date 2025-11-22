@@ -3,15 +3,13 @@ import PasskeyModal from "@/components/components/PasskeyModal";
 import Image from "next/image";
 import Link from "next/link";
 
-// Proper type for searchParams
-interface HomeProps {
+// In Next.js 13 App Router, searchParams is an object of strings
+export default function Home({
+  searchParams,
+}: {
   searchParams?: { [key: string]: string | undefined };
-}
-
-export default async function Home({ searchParams }: HomeProps) {
-  // Await searchParams if Next.js requires it
-  const params = await Promise.resolve(searchParams ?? {});
-  const isAdmin = params.admin === "true";
+}) {
+  const isAdmin = searchParams?.admin === "true";
 
   return (
     <div className="flex h-screen max-h-screen">
