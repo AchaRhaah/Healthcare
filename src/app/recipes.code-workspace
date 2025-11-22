@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "../../../cooking/recipes"
+	},
+	{
+		"path": "../../../../../Downloads/yc_directory-main/yc_directory-main/public"
+	}
+],
+  "settings": {
+    "git.ignoreLimitWarning": true
+  }
+}
