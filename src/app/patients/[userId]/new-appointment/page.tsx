@@ -2,13 +2,7 @@ import Image from "next/image";
 import { getPatient } from "../../../../../lib/actions/patient.actions";
 import AppointmentForm from "@/components/components/forms/AppointmentForm";
 
-// Inline typing matches Next.js App Router expectations
-type AppointmentPageProps = {
-  params: { userId: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-const Appointment = async ({ params }: AppointmentPageProps) => {
+const Appointment = async ({ params }: { params: { userId: string } }) => {
   const { userId } = params;
 
   // Fetch patient
