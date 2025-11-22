@@ -38,18 +38,20 @@ const Success = async ({
             Your <span className="text-green-500">appointment request</span> has
             been successfully submitted!
           </h2>
-          <p>We'll be in touch shortly to confirm.</p>
+          <p>We&apos;ll be in touch shortly to confirm.</p>
         </section>
         <section className="request-details grid gap-1 ">
           <p>Request appointment details: </p>
           <div className="flex items-center gap-3">
-            <Image
-              src={doctor?.image!}
-              alt="doctor"
-              width={100}
-              height={100}
-              className="size-6"
-            />
+            {doctor?.image && (
+              <Image
+                src={doctor.image}
+                alt="doctor"
+                width={100}
+                height={100}
+                className="size-6"
+              />
+            )}
             <p className="whitespace-nowrap"> Dr. {doctor?.name}</p>
           </div>
           <div className="flex gap-2">

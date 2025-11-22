@@ -65,6 +65,8 @@ const RegisterForm = ({ user }: { user: User }) => {
       //   identificationDocument: formData,
       // };
       // @ts-expect-error
+      someCodeThatCausesAnError();
+
       if (!isLoading) router.push(`/patients/${user.$id}/new-appointment`);
     } catch (error) {
       console.log(error);
@@ -191,9 +193,9 @@ const RegisterForm = ({ user }: { user: User }) => {
           label="Primary care physician"
           placeholder="Select a physician"
         >
-          {Doctors.map((doctor, i) => (
+          {Doctors.map((doctor) => (
             <SelectItem
-              key={doctor.name + i}
+              key={doctor.name}
               value={doctor.name}
               className="bg-black overflow-hidden"
             >
