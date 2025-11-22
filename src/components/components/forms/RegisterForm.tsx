@@ -274,7 +274,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           placeholder="Select an identification type"
           className="bg-black overflow-hidden"
         >
-          {IdentificationTypes.map((type, i) => (
+          {IdentificationTypes.map((type) => (
             <SelectItem
               key={type}
               value={type}
