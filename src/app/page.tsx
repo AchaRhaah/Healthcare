@@ -3,17 +3,17 @@ import PasskeyModal from "@/components/components/PasskeyModal";
 import Image from "next/image";
 import Link from "next/link";
 
-// In Next.js 13 App Router, searchParams is an object of strings
-export default function Home({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | undefined };
-}) {
-  const isAdmin = searchParams?.admin === "true";
+// export default function Home({
+//   searchParams,
+// }: {
+//   searchParams?: { [key: string]: string | undefined };
+// }) {
+export default function Home() {
+  // const isAdmin = searchParams?.admin === "true";
 
   return (
     <div className="flex h-screen max-h-screen">
-      {isAdmin && <PasskeyModal />}
+      {/* {isAdmin && <PasskeyModal />} */}
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">
           <Image
@@ -26,9 +26,9 @@ export default function Home({
           <PatientForm />
           <div className="text-14-regular mt-20 flex justify-between">
             <p>© 2024 carepulse</p>
-            <Link href="/?admin=true" className="text-green-500">
+            {/* <Link href="/?admin=true" className="text-green-500">
               Admin
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>
