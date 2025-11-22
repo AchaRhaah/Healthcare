@@ -2,10 +2,14 @@ import Image from "next/image";
 import { getPatient } from "../../../../../lib/actions/patient.actions";
 import AppointmentForm from "@/components/components/forms/AppointmentForm";
 
-const Appointment = async ({ params }: { params: { userId: string } }) => {
+// No custom type needed
+const Appointment = async ({
+  params,
+}: {
+  params: { userId: string }; // Inline type
+}) => {
   const { userId } = params;
 
-  // Fetch patient
   const patient = await getPatient(userId);
 
   return (
