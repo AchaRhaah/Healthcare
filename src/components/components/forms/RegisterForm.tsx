@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { Form, FormControl } from "@/components/ui/form";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,15 +10,9 @@ import { Label } from "@/components/ui/label";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "@/components/ui/SubmitButton";
 import { useState } from "react";
-import {
-  PatientFormValidation,
-  UserFormValidation,
-} from "../../../../lib/validation";
+import { PatientFormValidation } from "../../../../lib/validation";
 import { useRouter } from "next/navigation";
-import {
-  createUser,
-  registerPatient,
-} from "../../../../lib/actions/patient.actions";
+// import { registerPatient } from "../../../../lib/actions/patient.actions";
 import { FormFieldType } from "./PatientForm";
 import {
   Doctors,
@@ -65,14 +58,13 @@ const RegisterForm = ({ user }: { user: User }) => {
     }
 
     try {
-      const patientData = {
-        ...values,
-        userId: user.$id,
-        birthDate: new Date(values.birthDate),
-        identificationDocument: formData,
-      };
-      // @ts-ignore
-      const patient = await registerPatient(patientData);
+      // const patientData = {
+      //   ...values,
+      //   userId: user.$id,
+      //   birthDate: new Date(values.birthDate),
+      //   identificationDocument: formData,
+      // };
+      // @ts-expect-error
       if (!isLoading) router.push(`/patients/${user.$id}/new-appointment`);
     } catch (error) {
       console.log(error);

@@ -16,7 +16,7 @@ export const createUser = async (user: CreateUserParams) => {
     );
 
     return parseStringify(newuser);
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Check existing user
     if (error && error?.code === 409) {
       const existingUser = await users.list([
@@ -33,7 +33,7 @@ export const getUser = async (userId: string) => {
   try {
     const user = await users.get(userId);
     return user;
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (error.code === 404) {
       console.error(`User not found: ${userId}`);
       return null; // Return null for not-found cases
@@ -89,10 +89,11 @@ export const getPatient = async (userId: string) => {
   try {
     const patient = await databases.listDocuments(
       "675f6b2c00001814449e",
-      "675f6be00016b6bd1919", [Query.equal('userId', userId)]
+      "675f6be00016b6bd1919",
+      [Query.equal("userId", userId)]
     );
     return parseStringify(patient.documents[0]);
-  } catch (error: any) {
-    console.log(error)
+  } catch (error: unknown) {
+    console.log(error);
   }
 }; 

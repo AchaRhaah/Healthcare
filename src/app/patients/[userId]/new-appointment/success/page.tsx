@@ -5,7 +5,6 @@ import { getAppointment } from "../../../../../../lib/actions/appointment.action
 import { Doctors } from "../../../../../../constants";
 import { formatDateTime } from "../../../../../../lib/utils";
 import { Button } from "@/components/ui/button";
-import SubmitButton from "@/components/ui/SubmitButton";
 
 const Success = async ({
   params: { userId },

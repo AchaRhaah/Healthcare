@@ -1,7 +1,7 @@
 "use server";
 
-import { users, databases, storage } from "../appwrite.config";
-import { ID, Query } from "node-appwrite";
+import { databases } from "../appwrite.config";
+import { ID } from "node-appwrite";
 import { parseStringify } from "../utils";
 
 export const createAppointment = async (
@@ -15,7 +15,7 @@ export const createAppointment = async (
       appointment
     );
     return parseStringify(newAppointment);
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Check existing user
 
     console.error("An error occurred while creating a new appointment:", error);
@@ -30,5 +30,7 @@ export const getAppointment = async (appointmentId: string) => {
       appointmentId
     );
     return parseStringify(appointment);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -1,7 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
@@ -9,13 +7,9 @@ import { z } from "zod";
 import CustomFormField from "../CustomFormField";
 import SubmitButton from "@/components/ui/SubmitButton";
 import { useState } from "react";
-import {
-  CreateAppointmentSchema,
-  UserFormValidation,
-} from "../../../../lib/validation";
+import { CreateAppointmentSchema } from "../../../../lib/validation";
 import { createAppointment } from "../../../../lib/actions/appointment.action";
 import { useRouter } from "next/navigation";
-import { createUser } from "../../../../lib/actions/patient.actions";
 import { FormFieldType } from "./PatientForm";
 import { Doctors } from "../../../../constants";
 import { SelectItem } from "@/components/ui/select";
@@ -80,7 +74,9 @@ const AppointmentForm = ({
           );
         }
       }
-    } catch (error: any) {}
+    } catch (error: unknown) {
+      console.log(error);
+    }
   }
 
   let buttonLabel;

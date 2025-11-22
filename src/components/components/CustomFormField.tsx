@@ -1,9 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
-  Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -11,7 +8,7 @@ import {
 } from "@/components/ui/form";
 import { Control } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import PhoneInput, { Value } from "react-phone-number-input";
+import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import React from "react";
 import { FormFieldType } from "./forms/PatientForm";
@@ -43,8 +40,14 @@ interface CustomProps {
   renderSkeleton?: (field: any) => React.ReactNode;
 }
 
-const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
-  const { fieldType, iconSrc, iconAlt, placeholder, renderSkeleton } = props;
+const RenderField = ({
+  field,
+  props,
+}: {
+  field: unknown;
+  props: CustomProps;
+}) => {
+  const { iconSrc, iconAlt, placeholder, renderSkeleton } = props;
 
   switch (props.fieldType) {
     case FormFieldType.INPUT:
