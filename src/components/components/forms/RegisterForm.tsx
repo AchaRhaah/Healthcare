@@ -64,7 +64,7 @@ const RegisterForm = ({ user }: { user: User }) => {
       //   birthDate: new Date(values.birthDate),
       //   identificationDocument: formData,
       // };
-      // @ts-expect-error
+      // @ts-expect-error: temporary fix for type mismatch
       someCodeThatCausesAnError();
 
       if (!isLoading) router.push(`/patients/${user.$id}/new-appointment`);
@@ -136,8 +136,8 @@ const RegisterForm = ({ user }: { user: User }) => {
                   onValueChange={field.onChange}
                   defaultValue={field.value}
                 >
-                  {GenderOptions.map((option, i) => (
-                    <div key={option + i} className="radio-group">
+                  {GenderOptions.map((option) => (
+                    <div key={option} className="radio-group">
                       <RadioGroupItem value={option} id={option} />
                       <Label htmlFor={option} className="cursor-pointer">
                         {option}

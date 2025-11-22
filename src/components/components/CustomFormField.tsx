@@ -26,7 +26,7 @@ import {
 import { Textarea } from "../ui/textarea";
 import { Checkbox } from "../ui/checkbox";
 interface CustomProps {
-  control: Control<any>;
+  control: Control<unknown>;
   fieldType: FormFieldType;
   name: string;
   label?: string;
