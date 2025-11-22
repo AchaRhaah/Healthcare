@@ -1,12 +1,22 @@
 import Image from "next/image";
 import { getPatient } from "../../../../../lib/actions/patient.actions";
 import AppointmentForm from "@/components/components/forms/AppointmentForm";
-const Appointment = async ({ params: { userId } }: SearchParamProps) => {
+
+// Inline typing matches Next.js App Router expectations
+type AppointmentPageProps = {
+  params: { userId: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+const Appointment = async ({ params }: AppointmentPageProps) => {
+  const { userId } = params;
+
+  // Fetch patient
   const patient = await getPatient(userId);
 
   return (
     <div className="flex h-screen max-h-screen">
-      <section className="remove-scrollbar container ">
+      <section className="remove-scrollbar container">
         <div className="sub-container max-w-[760px] flex-1 justify-between">
           <Image
             src="/assets/icons/logo-full.svg"
